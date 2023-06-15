@@ -1,23 +1,34 @@
-import { useState } from 'react';
+import { useState, useContext } from 'react';
 import { ICard, IPlayerMove } from "../../interfaces";
 import PlayerTopCard from "../PlayerTopCard/PlayerTopCard";
+import CardComparison from '../CardComparison/CardComparison';
 import styled from 'styled-components';
+import myContext from '../context/myContext';
 
 const ConfirmBtn = styled.button`
   
 `
-
 function PlayerMove(props: IPlayerMove) {
-  const { playerTopCard, cpuTopCard, selectedAttr, setSelectedAttr } = props;
+  // props: IPlayerMove
+  const { playerTopCard, cpuTopCard } = props;
 
   const [confirmed, setConfirmed] = useState(false);
 
-  const checkRoundWin = () => {
-    console.log("click");
+  const {
+    selectedAttr,
+    setSelectedAttr,
+    // confirmedAttr,
+    // setConfirmedAttr
+  } = useContext(myContext);
+
+  const CompareCards = () => {
+    setConfirmed(true);
+
     if (playerTopCard[selectedAttr as keyof ICard] > cpuTopCard[selectedAttr as keyof ICard]) {
       console.log("ganhou!")
+    } else {
+      console.log("perdeu")
     }
-    setConfirmed(true);
   };
 
   return (
@@ -29,12 +40,12 @@ function PlayerMove(props: IPlayerMove) {
       />
       <ConfirmBtn
         type="button"
-        onClick={checkRoundWin}
+        onClick={CompareCards}
       >
         Confirma
       </ConfirmBtn>
       {
-        confirmed && <p>Confirmado!</p>
+        confirmed && <CardComparison setConfirmed={setConfirmed} />
       }
     </section>
   )
