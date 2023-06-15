@@ -7,13 +7,13 @@ export interface ICard {
 }
 
 export interface IPlayerMove {
-  playerTopCard: ICard,
-  cpuTopCard: ICard,
+  playerCards: ICard[],
+  cpuCards: ICard[],
   // selectedAttr: string,
   // setSelectedAttr: React.Dispatch<React.SetStateAction<string>>,
 }
 
-export interface IPlayerTopCard  {
+export interface IChooseAttrCard  {
   cardInfo: ICard,
   setSelectedAttr: React.Dispatch<React.SetStateAction<string>>,
 }

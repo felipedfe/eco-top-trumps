@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { ICard } from '../../interfaces';
 import styled from 'styled-components';
-import { IPlayerTopCard } from '../../interfaces';
+import { IChooseAttrCard } from '../../interfaces';
 import * as s from '../../styles/Global.styled';
 
 // const CardContainer = styled.section`
@@ -19,7 +19,7 @@ import * as s from '../../styles/Global.styled';
 //   text-align: left;
 // `
 
-function PlayerTopCard(props: IPlayerTopCard) {
+function ChooseAttrCard(props: IChooseAttrCard) {
   // const [selectedAttr, setSelectedAttr] = useState(0);
 
   const selectAttribute = (e: React.MouseEvent<HTMLButtonElement>) => {
@@ -56,4 +56,4 @@ function PlayerTopCard(props: IPlayerTopCard) {
   )
 }
 
-export default PlayerTopCard;
+export default ChooseAttrCard;

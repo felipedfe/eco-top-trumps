@@ -1,7 +1,9 @@
 import React, { createContext } from "react";
-import { ICard } from "../../interfaces";
+import { ICard } from "../interfaces";
 
 type ContextType = {
+  playerCards: ICard[],
+  cpuCards: ICard[],
   selectedAttr: string,
   setSelectedAttr: React.Dispatch<React.SetStateAction<string>>,
   playersTurn: boolean,
