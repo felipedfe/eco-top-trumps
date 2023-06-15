@@ -12,17 +12,17 @@ function PlayerMove(props: IPlayerMove) {
   // props: IPlayerMove
   const { playerTopCard, cpuTopCard } = props;
 
-  const [confirmed, setConfirmed] = useState(false);
+  const [cardComparison, setCardComparison] = useState(false);
 
   const {
     selectedAttr,
     setSelectedAttr,
-    // confirmedAttr,
-    // setConfirmedAttr
+    // cardComparisonAttr,
+    // setCardComparisonAttr
   } = useContext(myContext);
 
   const CompareCards = () => {
-    setConfirmed(true);
+    setCardComparison(true);
 
     if (playerTopCard[selectedAttr as keyof ICard] > cpuTopCard[selectedAttr as keyof ICard]) {
       console.log("ganhou!")
@@ -45,7 +45,12 @@ function PlayerMove(props: IPlayerMove) {
         Confirma
       </ConfirmBtn>
       {
-        confirmed && <CardComparison setConfirmed={setConfirmed} />
+        cardComparison &&
+        <CardComparison
+          playerTopCard={playerTopCard}
+          cpuTopCard={cpuTopCard}
+          setCardComparison={setCardComparison}
+        />
       }
     </section>
   )
