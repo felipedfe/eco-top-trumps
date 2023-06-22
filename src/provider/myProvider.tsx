@@ -12,6 +12,7 @@ function MyProvider({ children }: { children: React.ReactNode }) {
   const [confirmedAttr, setConfirmedAttr] = useState(false);
   const [playerCards, setPlayerCards] = useState<ICard[]>([]);
   const [cpuCards, setCpuCards] = useState<ICard[]>([]);
+  const [attrButtonDisabled, setAttrButtonDisabled] = useState(false);
   // const [playerCards, setPlayerCards] = useState<ICardArray<ICard>>([]);
   // const [cpuCards, setCpuCards] = useState<ICard[]>([]);
   // const [roundWinner, setRoundWinner] = useState("");
@@ -35,6 +36,8 @@ function MyProvider({ children }: { children: React.ReactNode }) {
     setPlayersTurn,
     confirmedAttr,
     setConfirmedAttr,
+    attrButtonDisabled,
+    setAttrButtonDisabled,
   }
 
   return (

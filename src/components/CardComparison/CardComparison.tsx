@@ -6,7 +6,7 @@ import Card from "../Card/Card";
 function CardComparison(props: ICardComparison) {
   const [roundWinner, setRoundWinner] = useState("");
   const { setConfirmAttr } = props;
-  const { setPlayersTurn, playerCards, cpuCards, selectedAttr } =
+  const { setPlayersTurn, playerCards, cpuCards, selectedAttr, setAttrButtonDisabled } =
     useContext(myContext);
 
   const playerTopCard = playerCards[playerCards.length - 1];
@@ -67,6 +67,7 @@ function CardComparison(props: ICardComparison) {
   const handleClick = () => {
     setConfirmAttr((prev: boolean) => !prev);
     checkRoundWinner(roundWinner);
+    setAttrButtonDisabled(false);
   };
 
   // os atributos são spread em <Card> para que props possa ser desestruturado
