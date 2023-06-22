@@ -1,7 +1,8 @@
-import { useState } from 'react';
+import { useContext, useState } from 'react';
+import myContext from '../../context/myContext';
 import { ICard } from '../../interfaces';
 import styled from 'styled-components';
-import { IChooseAttrCard } from '../../interfaces';
+// import { IChooseAttrCard } from '../../interfaces';
 import * as s from '../../styles/Global.styled';
 
 // const CardContainer = styled.section`
@@ -19,35 +20,38 @@ import * as s from '../../styles/Global.styled';
 //   text-align: left;
 // `
 
-function ChooseAttrCard(props: IChooseAttrCard) {
+function ChooseAttrCard() {
   // const [selectedAttr, setSelectedAttr] = useState(0);
+
+  const { setSelectedAttr, playerCards, } = useContext(myContext);
 
   const selectAttribute = (e: React.MouseEvent<HTMLButtonElement>) => {
     // const { target } = e;
     const target = e.target as HTMLButtonElement;
     setSelectedAttr(target.value)
-    console.log(target.value)
+    // console.log(target.value)
   };
 
-  const { cardInfo, setSelectedAttr } = props;
+  const playerTopCard = playerCards[playerCards.length - 1];
+  // const { cardInfo, setSelectedAttr } = props;
   // const { title } = cardInfo;
   // console.log(cardInfo)
   return (
     <s.CardContainer>
-      <s.Title>Título: {cardInfo.title}</s.Title>
+      <s.Title>Título: {playerTopCard.title}</s.Title>
       <s.Attribute
         type="button"
         value="strength"
         onClick={(e) => selectAttribute(e)}
       >
-        Força: {cardInfo.strength}
+        Força: {playerTopCard.strength}
       </s.Attribute>
       <s.Attribute
         type="button"
         value="skill"
         onClick={(e) => selectAttribute(e)}
       >
-        Habilidade: {cardInfo.skill}
+        Habilidade: {playerTopCard.skill}
       </s.Attribute>
       {/* <Attribute onClick={() => { }}>Habilidade: {cardInfo?.skill}</Attribute>
       <Attribute onClick={() => { }}>Magia: {cardInfo?.magic}</Attribute>

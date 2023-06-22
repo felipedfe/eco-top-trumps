@@ -21,7 +21,7 @@ function App() {
   //   setCpuCards(cpuHalf);
   // }, []);
 
-  console.log("playersTurn -> ", playersTurn);
+  // console.log("playersTurn -> ", playersTurn);
 
   return (
     <main>

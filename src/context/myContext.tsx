@@ -10,6 +10,8 @@ type ContextType = {
   setPlayersTurn: React.Dispatch<React.SetStateAction<boolean>>,
   confirmedAttr: boolean,
   setConfirmedAttr: React.Dispatch<React.SetStateAction<boolean>>,
+  // roundWinner: string,
+  // setRoundWinner: React.Dispatch<React.SetStateAction<string>>,
 }
 
 // aqui o context pode iniciar sem um valor definido

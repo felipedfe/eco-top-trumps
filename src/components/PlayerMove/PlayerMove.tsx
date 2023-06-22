@@ -42,8 +42,8 @@ function PlayerMove() {
     <section>
       <p>Selecione atributo:</p>
       <ChooseAttrCard
-        cardInfo={playerTopCard}
-        setSelectedAttr={setSelectedAttr}
+        // cardInfo={playerTopCard}
+        // setSelectedAttr={setSelectedAttr}
       />
       <ConfirmBtn
         type="button"
