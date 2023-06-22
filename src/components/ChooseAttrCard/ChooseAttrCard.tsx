@@ -1,24 +1,21 @@
-import { useContext, useEffect } from "react";
+import { useContext } from "react";
 import myContext from "../../context/myContext";
 import * as s from "../../styles/Global.styled";
 
 function ChooseAttrCard() {
-  // const [buttonDisabled, setButtonDisabled] = useState(false);
   const {
     setSelectedAttr,
     playerCards,
-    setAttrButtonDisabled,
     attrButtonDisabled,
+    setConfirmAttrBtnDisabled,
   } = useContext(myContext);
 
   const selectAttribute = (e: React.MouseEvent<HTMLButtonElement>) => {
     const target = e.target as HTMLButtonElement;
-    setSelectedAttr(target.value);
-  };
 
-  // useEffect(() => {
-  //   setAttrButtonDisabled(false);
-  // }, [setAttrButtonDisabled]);
+    setSelectedAttr(target.value);
+    setConfirmAttrBtnDisabled(false);
+  };
 
   const playerTopCard = playerCards[playerCards.length - 1];
 

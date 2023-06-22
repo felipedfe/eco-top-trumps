@@ -14,6 +14,8 @@ type ContextType = {
   // setRoundWinner: React.Dispatch<React.SetStateAction<string>>,
   attrButtonDisabled: boolean;
   setAttrButtonDisabled: React.Dispatch<React.SetStateAction<boolean>>;
+  confirmAttrBtnDisabled: boolean;
+  setConfirmAttrBtnDisabled: React.Dispatch<React.SetStateAction<boolean>>;
 };
 
 // aqui o context pode iniciar sem um valor definido

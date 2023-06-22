@@ -6,8 +6,13 @@ import Card from "../Card/Card";
 function CardComparison(props: ICardComparison) {
   const [roundWinner, setRoundWinner] = useState("");
   const { setConfirmAttr } = props;
-  const { setPlayersTurn, playerCards, cpuCards, selectedAttr, setAttrButtonDisabled } =
-    useContext(myContext);
+  const {
+    setPlayersTurn,
+    playerCards,
+    cpuCards,
+    selectedAttr,
+    setAttrButtonDisabled,
+  } = useContext(myContext);
 
   const playerTopCard = playerCards[playerCards.length - 1];
   const cpuTopCard = cpuCards[cpuCards.length - 1];
@@ -75,6 +80,7 @@ function CardComparison(props: ICardComparison) {
   return (
     <>
       <p>Card Comparison</p>
+      <p>{`${roundWinner} venceu!`}</p>
       <Card {...playerTopCard} />
       <Card {...cpuTopCard} />
       <button onClick={handleClick}>Back</button>
