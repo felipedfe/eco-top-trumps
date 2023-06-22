@@ -18,6 +18,10 @@ export interface IPlayerMove {
   // setSelectedAttr: React.Dispatch<React.SetStateAction<string>>,
 }
 
+export interface ICardComparison {
+  setConfirmAttr: React.Dispatch<React.SetStateAction<boolean>>;
+}
+
 // export interface IChooseAttrCard  {
 //   cardInfo: ICard,
 //   setSelectedAttr: React.Dispatch<React.SetStateAction<string>>,

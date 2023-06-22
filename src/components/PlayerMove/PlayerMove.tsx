@@ -1,13 +1,11 @@
-import { useState, useContext } from 'react';
+import { useState, useContext } from "react";
 import { ICard, IPlayerMove } from "../../interfaces";
 import ChooseAttrCard from "../ChooseAttrCard/ChooseAttrCard";
-import CardComparison from '../CardComparison/CardComparison';
-import styled from 'styled-components';
-import myContext from '../../context/myContext';
+import CardComparison from "../CardComparison/CardComparison";
+import styled from "styled-components";
+import myContext from "../../context/myContext";
 
-const ConfirmBtn = styled.button`
-  
-`
+const ConfirmBtn = styled.button``;
 function PlayerMove() {
   // props: IPlayerMove
   // const { playerCards, cpuCards } = props;
@@ -41,27 +39,13 @@ function PlayerMove() {
   return (
     <section>
       <p>Selecione atributo:</p>
-      <ChooseAttrCard
-        // cardInfo={playerTopCard}
-        // setSelectedAttr={setSelectedAttr}
-      />
-      <ConfirmBtn
-        type="button"
-        onClick={() => setConfirmAttr(true)}
-      >
+      <ChooseAttrCard />
+      <ConfirmBtn type="button" onClick={() => setConfirmAttr(true)}>
         Confirma
       </ConfirmBtn>
-      {
-        confirmAttr &&
-        <CardComparison
-          // playerTopCard={playerTopCard}
-          // cpuTopCard={cpuTopCard}
-          setConfirmAttr={setConfirmAttr}
-        />
-      }
+      {confirmAttr && <CardComparison setConfirmAttr={setConfirmAttr} />}
     </section>
-  )
+  );
 }
-
 
 export default PlayerMove;
