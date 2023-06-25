@@ -23,7 +23,7 @@ function PlayerMove() {
   };
 
   return (
-    <section>
+    <>
       <p>Selecione atributo:</p>
       <ChooseAttrCard />
       <ConfirmBtn
@@ -34,7 +34,7 @@ function PlayerMove() {
         Confirma
       </ConfirmBtn>
       {confirmAttr && <CardComparison setConfirmAttr={setConfirmAttr} />}
-    </section>
+    </>
   );
 }
 

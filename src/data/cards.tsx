@@ -9,7 +9,7 @@ export const cards = [
   {
     title: "Mage",
     strength: 50,
-    skill: 70,
+    skill: 99,
     magic: 100,
     fear: 80,
   },

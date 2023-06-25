@@ -8,6 +8,9 @@ function CardComparison(props: ICardComparison) {
   const { setConfirmAttr } = props;
   const {
     setPlayersTurn,
+    setCpusTurn,
+    gameOver,
+    setGameOver,
     playerCards,
     cpuCards,
     selectedAttr,
@@ -19,20 +22,18 @@ function CardComparison(props: ICardComparison) {
 
   // quando o componente é renderizado é feita a verificação do ganhador da rodada
   useEffect(() => {
-    const CompareCards = () => {
+    const compareCards = () => {
       if (
         playerTopCard[selectedAttr as keyof ICard] >
         cpuTopCard[selectedAttr as keyof ICard]
       ) {
-        console.log("ganhou!");
         setRoundWinner("player");
       } else {
-        console.log("perdeu");
         setRoundWinner("cpu");
       }
     };
 
-    CompareCards();
+    compareCards();
   }, [playerTopCard, cpuTopCard, selectedAttr]);
 
   const putCardsInPlayersDeck = () => {
@@ -58,13 +59,21 @@ function CardComparison(props: ICardComparison) {
 
     if (winner === "player" && enoughCardsInDecks) {
       putCardsInPlayersDeck();
+      setPlayersTurn(true);
+      setCpusTurn(false);
     } else {
       putCardsInCpusDeck();
       setPlayersTurn(false);
+      setCpusTurn(true);
     }
 
     if (!cpuCards.length || !playerCards.length) {
       setPlayersTurn(false);
+      setCpusTurn(false);
+      setGameOver((prev) => !prev);
+      
+      console.log("CPU CARDS length: ", cpuCards.length);
+      console.log("PLAYER CARDS length: ", playerCards.length);
       console.log("FIM DE JOGO");
     }
   };
