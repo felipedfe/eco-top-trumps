@@ -5,7 +5,7 @@ import Card from "../Card/Card";
 
 function CardComparison(props: ICardComparison) {
   const [roundWinner, setRoundWinner] = useState("");
-  const { setConfirmAttr } = props;
+  const { setConfirmedAttr } = props;
   const {
     setPlayersTurn,
     setCpusTurn,
@@ -70,15 +70,11 @@ function CardComparison(props: ICardComparison) {
       setPlayersTurn(false);
       setCpusTurn(false);
       setGameOver((prev) => !prev);
-      
-      console.log("CPU CARDS length: ", cpuCards.length);
-      console.log("PLAYER CARDS length: ", playerCards.length);
-      console.log("FIM DE JOGO");
     }
   };
 
   const handleClick = () => {
-    setConfirmAttr((prev: boolean) => !prev);
+    setConfirmedAttr((prev: boolean) => !prev);
     checkRoundWinner(roundWinner);
     setAttrButtonDisabled(false);
   };
@@ -88,9 +84,9 @@ function CardComparison(props: ICardComparison) {
   return (
     <>
       <p>Card Comparison</p>
-      <br/>
+      <br />
       <p>{`${roundWinner} venceu!`}</p>
-      <br/>
+      <br />
       <span>player - </span><Card {...playerTopCard} />
       <span>cpu - </span><Card {...cpuTopCard} />
       <button onClick={handleClick}>Back</button>

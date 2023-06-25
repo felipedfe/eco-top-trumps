@@ -7,7 +7,7 @@ import myContext from "../../context/myContext";
 const ConfirmBtn = styled.button``;
 
 function PlayerMove() {
-  const [confirmAttr, setConfirmAttr] = useState(false);
+  const [confirmedAttr, setConfirmedAttr] = useState(false);
 
   const {
     setAttrButtonDisabled,
@@ -16,7 +16,7 @@ function PlayerMove() {
   } = useContext(myContext);
 
   const handleClick = () => {
-    setConfirmAttr(true);
+    setConfirmedAttr(true);
     setAttrButtonDisabled(true);
     setConfirmAttrBtnDisabled(true);
   };
@@ -32,7 +32,7 @@ function PlayerMove() {
       >
         Confirma
       </ConfirmBtn>
-      {confirmAttr && <CardComparison setConfirmAttr={setConfirmAttr} />}
+      {confirmedAttr && <CardComparison setConfirmedAttr={setConfirmedAttr} />}
     </>
   );
 }

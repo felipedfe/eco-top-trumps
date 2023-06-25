@@ -21,7 +21,7 @@ function ChooseAttrCard() {
 
   return (
     <s.CardContainer>
-      <s.Title>Título: {playerTopCard.title}</s.Title>
+      <s.Title>{playerTopCard.title}</s.Title>
       <s.Attribute
         type="button"
         value="strength"

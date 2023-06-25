@@ -4,7 +4,7 @@ import { ICard } from "../interfaces";
 import { shuffle, splitCards } from "../utils";
 import { cards } from "../data/cards";
 
-function MyProvider({ children }: { children: React.ReactNode }) {
+function GameProvider({ children }: { children: React.ReactNode }) {
   const [selectedAttr, setSelectedAttr] = useState("");
   const [playersTurn, setPlayersTurn] = useState(true);
   const [cpusTurn, setCpusTurn] = useState(false);
@@ -28,6 +28,7 @@ function MyProvider({ children }: { children: React.ReactNode }) {
     playerCards,
     cpuCards,
     setPlayerCards,
+    setCpuCards,
     selectedAttr,
     setSelectedAttr,
     playersTurn,
@@ -49,4 +50,4 @@ function MyProvider({ children }: { children: React.ReactNode }) {
   );
 }
 
-export default MyProvider;
+export default GameProvider;

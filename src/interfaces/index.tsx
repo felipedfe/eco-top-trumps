@@ -12,5 +12,5 @@ export interface IPlayerMove {
 }
 
 export interface ICardComparison {
-  setConfirmAttr: React.Dispatch<React.SetStateAction<boolean>>;
+  setConfirmedAttr: React.Dispatch<React.SetStateAction<boolean>>;
 }

@@ -3,7 +3,9 @@ import { ICard } from "../interfaces";
 
 type ContextType = {
   playerCards: ICard[];
+  setPlayerCards: React.Dispatch<React.SetStateAction<ICard[]>>;
   cpuCards: ICard[];
+  setCpuCards: React.Dispatch<React.SetStateAction<ICard[]>>;
   selectedAttr: string;
   setSelectedAttr: React.Dispatch<React.SetStateAction<string>>;
   playersTurn: boolean;

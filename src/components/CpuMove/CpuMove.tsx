@@ -3,7 +3,7 @@ import myContext from "../../context/myContext";
 import CardComparison from "../CardComparison/CardComparison";
 
 function CpuMove() {
-  const [confirmAttr, setConfirmAttr] = useState(false);
+  const [confirmedAttr, setConfirmedAttr] = useState(false);
 
   const { setSelectedAttr } = useContext(myContext);
 
@@ -24,7 +24,7 @@ function CpuMove() {
     return attributes[attrKey];
   }
 
-  const intervalId = setInterval((prev: boolean) => setConfirmAttr(!prev), 1000);
+  const intervalId = setInterval((prev: boolean) => setConfirmedAttr(!prev), 1000);
 
   useEffect(() => {
     const attribute = selectRandomAttribute();
@@ -35,7 +35,11 @@ function CpuMove() {
   return (
     <>
       <p>Cpu Move</p>
-      {confirmAttr ? <CardComparison setConfirmAttr={setConfirmAttr} /> : <p>Cpu Pensando...</p>}
+      {
+        confirmedAttr ?
+          <CardComparison setConfirmedAttr={setConfirmedAttr} /> :
+          <p>Cpu Pensando...</p>
+      }
     </>
   )
 }
