@@ -9,7 +9,6 @@ function CardComparison(props: ICardComparison) {
   const {
     setPlayersTurn,
     setCpusTurn,
-    gameOver,
     setGameOver,
     playerCards,
     cpuCards,
@@ -89,9 +88,11 @@ function CardComparison(props: ICardComparison) {
   return (
     <>
       <p>Card Comparison</p>
+      <br/>
       <p>{`${roundWinner} venceu!`}</p>
-      <Card {...playerTopCard} />
-      <Card {...cpuTopCard} />
+      <br/>
+      <span>player - </span><Card {...playerTopCard} />
+      <span>cpu - </span><Card {...cpuTopCard} />
       <button onClick={handleClick}>Back</button>
     </>
   );

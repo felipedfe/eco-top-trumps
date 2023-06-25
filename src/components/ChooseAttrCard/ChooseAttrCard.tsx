@@ -1,6 +1,6 @@
 import { useContext } from "react";
 import myContext from "../../context/myContext";
-import * as s from "../../styles/Global.styled";
+import * as s from "../../styles/GlobalComponents.styled";
 
 function ChooseAttrCard() {
   const {
@@ -37,6 +37,14 @@ function ChooseAttrCard() {
         onClick={(e) => selectAttribute(e)}
       >
         Habilidade: {playerTopCard.skill}
+      </s.Attribute>
+      <s.Attribute
+        type="button"
+        value="magic"
+        disabled={attrButtonDisabled}
+        onClick={(e) => selectAttribute(e)}
+      >
+        Magia: {playerTopCard.magic}
       </s.Attribute>
     </s.CardContainer>
   );

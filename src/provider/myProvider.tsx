@@ -5,8 +5,6 @@ import { shuffle, splitCards } from "../utils";
 import { cards } from "../data/cards";
 
 function MyProvider({ children }: { children: React.ReactNode }) {
-  // const [playerCards, setPlayerCards] = useState<ICard[]>([]);
-  // const [cpuCards, setCpuCards] = useState<ICard[]>([]);
   const [selectedAttr, setSelectedAttr] = useState("");
   const [playersTurn, setPlayersTurn] = useState(true);
   const [cpusTurn, setCpusTurn] = useState(false);
@@ -16,9 +14,6 @@ function MyProvider({ children }: { children: React.ReactNode }) {
   const [attrButtonDisabled, setAttrButtonDisabled] = useState(false);
   const [confirmAttrBtnDisabled, setConfirmAttrBtnDisabled] = useState(true);
   const [gameOver, setGameOver] = useState(false);
-  // const [playerCards, setPlayerCards] = useState<ICardArray<ICard>>([]);
-  // const [cpuCards, setCpuCards] = useState<ICard[]>([]);
-  // const [roundWinner, setRoundWinner] = useState("");
 
   // aqui as cartas são embaralhadas e distribuidas
   useEffect(() => {

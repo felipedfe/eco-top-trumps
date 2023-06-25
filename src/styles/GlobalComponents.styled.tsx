@@ -5,7 +5,8 @@ export const CardContainer = styled.section`
   flex-direction: column;
   padding: 1rem;
   width: 150px;
-  gap: 3px;
+  gap: 5px;
+  border: solid 2px gray;
 `
 
 export const Title = styled.p`

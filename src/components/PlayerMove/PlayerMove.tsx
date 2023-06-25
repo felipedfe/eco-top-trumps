@@ -8,7 +8,6 @@ const ConfirmBtn = styled.button``;
 
 function PlayerMove() {
   const [confirmAttr, setConfirmAttr] = useState(false);
-  // const [confirmAttrBtnDisabled, setConfirmAttrBtnDisabled] = useState(true);
 
   const {
     setAttrButtonDisabled,
