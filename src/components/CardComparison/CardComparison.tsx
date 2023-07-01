@@ -49,14 +49,15 @@ function CardComparison(props: ICardComparison) {
     cpuCards.unshift(cpuCard, playerCard);
   };
 
-  const checkForCardsInDecks = () => {
-    return playerCards.length && cpuCards.length;
-  };
+  // const checkForCardsInDecks = () => {
+  //   console.log("--> ", playerCards.length > 0 && cpuCards.length > 0)
+  //   return playerCards.length && cpuCards.length;
+  // };
 
   const checkRoundWinner = (winner: string) => {
-    const enoughCardsInDecks = checkForCardsInDecks();
+    // const enoughCardsInDecks = checkForCardsInDecks();
 
-    if (winner === "player" && enoughCardsInDecks) {
+    if (winner === "player") {
       putCardsInPlayersDeck();
       setPlayersTurn(true);
       setCpusTurn(false);
@@ -89,6 +90,8 @@ function CardComparison(props: ICardComparison) {
       <br />
       <span>player - </span><Card {...playerTopCard} />
       <span>cpu - </span><Card {...cpuTopCard} />
+      {/* <span>player - </span><Card card={playerTopCard} selectiveAttr />
+      <span>cpu - </span><Card card={playerTopCard} /> */}
       <button onClick={handleClick}>Back</button>
     </>
   );

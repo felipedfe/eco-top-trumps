@@ -1,30 +1,38 @@
 export const cards = [
   {
+    id: "dragon",
     title: "Dragão",
     strength: 100,
     skill: 98,
     magic: 90,
     fear: 99,
+    charisma: 0,
   },
   {
+    id: "wizard",
     title: "Mago",
     strength: 50,
     skill: 99,
     magic: 100,
     fear: 80,
+    charisma: 99,
   },
   {
+    id: "dwarf",
     title: "Anão",
     strength: 90,
     skill: 90,
     magic: 40,
     fear: 100,
+    charisma: 50,
   },
   {
+    id: "elf",
     title: "Elfo",
     strength: 70,
     skill: 100,
     magic: 85,
     fear: 50,
+    charisma: 30,
   },
 ]

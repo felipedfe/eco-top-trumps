@@ -1,8 +1,8 @@
 import { useState, useEffect } from "react";
 import myContext from "../context/myContext";
 import { ICard } from "../interfaces";
-import { shuffle, splitCards } from "../utils";
-import { cards } from "../data/cards";
+// import { shuffle, splitCards } from "../utils";
+// import { cards } from "../data/cards";
 
 function GameProvider({ children }: { children: React.ReactNode }) {
   const [selectedAttr, setSelectedAttr] = useState("");
@@ -16,13 +16,13 @@ function GameProvider({ children }: { children: React.ReactNode }) {
   const [gameOver, setGameOver] = useState(false);
 
   // aqui as cartas são embaralhadas e distribuidas
-  useEffect(() => {
-    shuffle(cards);
-    const [playerHalf, cpuHalf] = splitCards(cards);
+  // useEffect(() => {
+  //   shuffle(cards);
+  //   const [playerHalf, cpuHalf] = splitCards(cards);
 
-    setPlayerCards(playerHalf);
-    setCpuCards(cpuHalf);
-  }, []);
+  //   setPlayerCards(playerHalf);
+  //   setCpuCards(cpuHalf);
+  // }, []);
 
   const providerState = {
     playerCards,

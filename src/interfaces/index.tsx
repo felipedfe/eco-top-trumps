@@ -1,10 +1,17 @@
 export interface ICard {
+  id: string,
   title: string,
   strength: number,
   skill: number,
   magic: number,
   fear: number,
+  charisma: number,
 }
+
+// export interface ICardComponent {
+//   card: ICard,
+//   selectiveAttr?: boolean,
+// }
 
 export interface IPlayerMove {
   playerCards: ICard[],
