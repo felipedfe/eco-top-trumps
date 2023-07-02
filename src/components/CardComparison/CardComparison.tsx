@@ -2,9 +2,48 @@ import { useContext, useEffect, useState } from "react";
 import myContext from "../../context/myContext";
 import { ICard, ICardComparison } from "../../interfaces";
 import Card from "../Card/Card";
+import styled from "styled-components";
+import { capitalize } from "../../utils";
+
+const ComparisonSection = styled.section`
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: white;
+`
+
+const Title = styled.h2`
+  
+`
+
+const ChosenAttribute = styled.h3`
+  
+`
+
+const CardsContainer = styled.div`
+  display: flex;
+  background-color: pink;
+`
+
+interface ICardWrapperProps {
+  cardAnimation: boolean,
+}
+
+const CardWrapper = styled.div<ICardWrapperProps>`
+  background-color: ${(props) => props.cardAnimation && "red"};
+  transform: translateY(${(props) => props.cardAnimation && "-20px"});
+
+  
+  transition: transform 1s;
+`
+
+const BackButton = styled.button`
+  
+`
 
 function CardComparison(props: ICardComparison) {
   const [roundWinner, setRoundWinner] = useState("");
+  const [cardAnimation, setCardAnimation] = useState(false);
   const { setConfirmedAttr } = props;
   const {
     setPlayersTurn,
@@ -18,6 +57,10 @@ function CardComparison(props: ICardComparison) {
 
   const playerTopCard = playerCards[playerCards.length - 1];
   const cpuTopCard = cpuCards[cpuCards.length - 1];
+
+  useEffect(() => {
+    setCardAnimation(true);
+  }, [])
 
   // quando o componente é renderizado é feita a verificação do ganhador da rodada
   useEffect(() => {
@@ -83,17 +126,21 @@ function CardComparison(props: ICardComparison) {
   // os atributos são spread em <Card> para que props possa ser desestruturado
   // no componente
   return (
-    <>
-      <p>Card Comparison</p>
-      <br />
-      <p>{`${roundWinner} venceu!`}</p>
-      <br />
-      <span>player - </span><Card {...playerTopCard} />
-      <span>cpu - </span><Card {...cpuTopCard} />
+    <ComparisonSection>
+      <Title>{`${capitalize(roundWinner)} venceu!`}</Title>
+      <ChosenAttribute>Atributo escolhido: {`${selectedAttr}`}</ChosenAttribute>
+      <CardsContainer>
+        <CardWrapper cardAnimation={cardAnimation}>
+          <Card {...playerTopCard} />
+        </CardWrapper>
+        <CardWrapper cardAnimation={cardAnimation}>
+          <Card {...cpuTopCard} />
+        </CardWrapper>
+      </CardsContainer>
       {/* <span>player - </span><Card card={playerTopCard} selectiveAttr />
       <span>cpu - </span><Card card={playerTopCard} /> */}
-      <button onClick={handleClick}>Back</button>
-    </>
+      <BackButton onClick={handleClick}>Back</BackButton>
+    </ComparisonSection>
   );
 }
 

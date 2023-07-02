@@ -30,8 +30,8 @@ function StartScreen() {
         Play!
       </button>
 
-      <h2>Teste</h2>
-      <Card {...cards[0]}/>
+      {/* <h2>Teste</h2>
+      <Card {...cards[0]}/> */}
     </main>
   );
 }

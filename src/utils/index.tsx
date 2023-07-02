@@ -13,3 +13,12 @@ export function splitCards(array: ICard[]) {
   const playerHalf = array.slice(middle, array.length);
   return [playerHalf, cpuHalf];
 }
+
+export function capitalize(word: string) {
+  if (word) {
+    const firstLetter = word[0].toUpperCase();
+    const splited = word.split("")
+    splited.splice(0, 1, firstLetter)
+    return splited.join("");
+  }
+}

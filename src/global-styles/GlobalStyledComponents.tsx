@@ -33,9 +33,15 @@ export const AttributesSection = styled.section`
   flex-direction: column;
 `
 
-export const Attribute = styled.span`
+interface IAttProps {
+  selectedAttr: boolean,
+}
+
+export const Attribute = styled.span<IAttProps>`
   background-color: #9fd7cc;
   padding: 5px;
-  /* margin: 2px 0; */
   border: solid gray 1px;
+
+  border-color: ${(props) => props.selectedAttr && "red"};
+  border-width: ${(props) => props.selectedAttr && "4px"};
 `

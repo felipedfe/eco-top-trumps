@@ -1,7 +1,11 @@
+import { useContext } from 'react';
 import { ICard } from "../../interfaces";
 import * as s from '../../global-styles/GlobalStyledComponents';
+import myContext from "../../context/myContext";
 
 function Card({ id, title, strength, skill, magic, fear, charisma }: ICard) {
+
+  const { selectedAttr } = useContext(myContext);
 
   return (
     <s.CardContainer>
@@ -10,11 +14,11 @@ function Card({ id, title, strength, skill, magic, fear, charisma }: ICard) {
         <s.Image src={`/images/${id}.png`} alt={`${id}`} />
       </s.ImageSection>
       <s.AttributesSection>
-        <s.Attribute>Força: {strength}</s.Attribute>
-        <s.Attribute>Habilidade: {skill}</s.Attribute>
-        <s.Attribute>Magia: {magic}</s.Attribute>
-        <s.Attribute>Medo: {fear}</s.Attribute>
-        <s.Attribute>Carisma: {charisma}</s.Attribute>
+        <s.Attribute selectedAttr={selectedAttr === "strength"}>Força: {strength}</s.Attribute>
+        <s.Attribute selectedAttr={selectedAttr === "skill"}>Habilidade: {skill}</s.Attribute>
+        <s.Attribute selectedAttr={selectedAttr === "magic"}>Magia: {magic}</s.Attribute>
+        <s.Attribute selectedAttr={selectedAttr === "fear"}>Medo: {fear}</s.Attribute>
+        <s.Attribute selectedAttr={selectedAttr === "charisma"}>Carisma: {charisma}</s.Attribute>
       </s.AttributesSection>
     </s.CardContainer >
   )
