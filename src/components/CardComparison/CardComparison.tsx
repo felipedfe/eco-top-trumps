@@ -9,20 +9,27 @@ const ComparisonSection = styled.section`
   position: absolute;
   top: 0;
   left: 0;
-  background-color: white;
+  background-color: #f5ff8a;
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 `
 
 const Title = styled.h2`
-  
+  padding: 1.5rem 0;
 `
 
 const ChosenAttribute = styled.h3`
-  
+  padding: 1rem 0;
 `
 
 const CardsContainer = styled.div`
   display: flex;
-  background-color: pink;
+  justify-content: center;
+  gap: 2rem;
+  /* background-color: pink; */
 `
 
 interface ICardWrapperProps {
@@ -30,11 +37,12 @@ interface ICardWrapperProps {
 }
 
 const CardWrapper = styled.div<ICardWrapperProps>`
-  background-color: ${(props) => props.cardAnimation && "red"};
-  transform: translateY(${(props) => props.cardAnimation && "-20px"});
+  /* background-color: ${(props) => props.cardAnimation && "red"}; */
+  transform: translateY(${(props) => props.cardAnimation ? "0px" : "30px"});
+  /* transform: rotate(${(props) => props.cardAnimation ? "0deg" : "2deg"}); */
 
   
-  transition: transform 1s;
+  transition: transform 0.7s;
 `
 
 const BackButton = styled.button`
@@ -52,17 +60,19 @@ function CardComparison(props: ICardComparison) {
     playerCards,
     cpuCards,
     selectedAttr,
+    setSelectedAttr,
     setAttrButtonDisabled,
   } = useContext(myContext);
 
   const playerTopCard = playerCards[playerCards.length - 1];
   const cpuTopCard = cpuCards[cpuCards.length - 1];
 
+  // quando componente é montado a animação das cartas começa
   useEffect(() => {
     setCardAnimation(true);
   }, [])
 
-  // quando o componente é renderizado é feita a verificação do ganhador da rodada
+  // quando o componente é montado é feita a verificação do ganhador da rodada
   useEffect(() => {
     const compareCards = () => {
       if (
@@ -121,10 +131,10 @@ function CardComparison(props: ICardComparison) {
     setConfirmedAttr((prev: boolean) => !prev);
     checkRoundWinner(roundWinner);
     setAttrButtonDisabled(false);
+    setSelectedAttr("");
   };
 
-  // os atributos são spread em <Card> para que props possa ser desestruturado
-  // no componente
+  // os atributos são spread em <Card> para que props possa ser desestruturado no componente
   return (
     <ComparisonSection>
       <Title>{`${capitalize(roundWinner)} venceu!`}</Title>

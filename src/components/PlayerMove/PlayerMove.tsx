@@ -4,6 +4,21 @@ import CardComparison from "../CardComparison/CardComparison";
 import styled from "styled-components";
 import myContext from "../../context/myContext";
 
+const PlayerMoveSection = styled.section`
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* justify-content: center; */
+  background-color: lightgreen;
+  padding-top: 5%;
+`
+
+const Title = styled.h1`
+  padding: 2rem 0;
+  font-size: 1.5rem;
+`
+
 const ConfirmBtn = styled.button``;
 
 function PlayerMove() {
@@ -22,8 +37,8 @@ function PlayerMove() {
   };
 
   return (
-    <>
-      <p>Selecione atributo:</p>
+    <PlayerMoveSection>
+      <Title>Selecione atributo:</Title>
       <ChooseAttrCard />
       <ConfirmBtn
         type="button"
@@ -32,8 +47,10 @@ function PlayerMove() {
       >
         Confirma
       </ConfirmBtn>
+
+      {/* A tela de comparação é aberta em cima da tela de seleção de atributo */}
       {confirmedAttr && <CardComparison setConfirmedAttr={setConfirmedAttr} />}
-    </>
+    </PlayerMoveSection>
   );
 }
 

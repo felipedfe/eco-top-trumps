@@ -5,6 +5,8 @@ import myContext from "../../context/myContext";
 
 function Card({ id, title, strength, skill, magic, fear, charisma }: ICard) {
 
+  // esse valor é passado como um booleano para o componente s.Attribute
+  // quando true, o atributo é destacado na carta
   const { selectedAttr } = useContext(myContext);
 
   return (

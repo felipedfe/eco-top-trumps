@@ -7,10 +7,6 @@ export const GlobalStyle = createGlobalStyle`
     padding: 0;
   }
 
-  main {
-    margin: 20px;
-  }
-
   /* html {
     --color-primary: #00494d;
     --color-secondary: #c5e4e7;

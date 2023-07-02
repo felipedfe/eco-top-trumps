@@ -24,8 +24,12 @@ export const Image = styled.img`
   object-fit: cover;
 `
 
-export const SelectableAttribute = styled.button`
+interface ISelectableAttrProps {
+  selected: boolean;
+}
 
+export const SelectableAttribute = styled.button<ISelectableAttrProps>`
+  background-color: ${(props) => props.selected ? "cyan" : "lightgray"}
 `
 
 export const AttributesSection = styled.section`

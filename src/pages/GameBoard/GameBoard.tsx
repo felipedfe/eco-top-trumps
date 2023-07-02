@@ -3,6 +3,15 @@ import PlayerMove from "../../components/PlayerMove/PlayerMove";
 import CpuMove from "../../components/CpuMove/CpuMove";
 import GameOver from "../../components/GameOver/GameOver";
 import myContext from "../../context/myContext";
+import styled from "styled-components";
+
+const Main = styled.main`
+  height: 100vh;
+`
+
+const GameSection = styled.section`
+  height: 100%;
+`
 
 function GameBoard() {
   const { playerCards, playersTurn, cpusTurn, gameOver, } = useContext(myContext);
@@ -12,20 +21,20 @@ function GameBoard() {
   console.log(playerCards)
 
   return (
-    <main>
-      <section>
+    <Main>
+      <GameSection>
         {playerCards.length !== 0 && (
           <>
             {playersTurn && <PlayerMove />}
             {cpusTurn && <CpuMove />}
           </>
         )}
-      </section>
+      </GameSection>
 
       <section>
         {gameOver && <GameOver />}
       </section>
-    </main>
+    </Main>
   );
 }
 

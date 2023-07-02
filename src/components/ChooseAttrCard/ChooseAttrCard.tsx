@@ -1,9 +1,10 @@
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import myContext from "../../context/myContext";
 import * as s from "../../global-styles/GlobalStyledComponents";
 
 function ChooseAttrCard() {
   const {
+    selectedAttr,
     setSelectedAttr,
     playerCards,
     attrButtonDisabled,
@@ -27,6 +28,7 @@ function ChooseAttrCard() {
       </s.ImageSection>
       <s.AttributesSection>
         <s.SelectableAttribute
+          selected={selectedAttr === "strength"}
           type="button"
           value="strength"
           disabled={attrButtonDisabled}
@@ -35,6 +37,7 @@ function ChooseAttrCard() {
           Força: {playerTopCard.strength}
         </s.SelectableAttribute>
         <s.SelectableAttribute
+          selected={selectedAttr === "skill"}
           type="button"
           value="skill"
           disabled={attrButtonDisabled}
@@ -43,6 +46,7 @@ function ChooseAttrCard() {
           Habilidade: {playerTopCard.skill}
         </s.SelectableAttribute>
         <s.SelectableAttribute
+          selected={selectedAttr === "magic"}
           type="button"
           value="magic"
           disabled={attrButtonDisabled}
@@ -51,6 +55,7 @@ function ChooseAttrCard() {
           Magia: {playerTopCard.magic}
         </s.SelectableAttribute>
         <s.SelectableAttribute
+          selected={selectedAttr === "fear"}
           type="button"
           value="fear"
           disabled={attrButtonDisabled}
@@ -59,6 +64,7 @@ function ChooseAttrCard() {
           Medo: {playerTopCard.fear}
         </s.SelectableAttribute>
         <s.SelectableAttribute
+          selected={selectedAttr === "charisma"}
           type="button"
           value="charisma"
           disabled={attrButtonDisabled}
