@@ -24,13 +24,14 @@ function CpuMove() {
     return attributes[attrKey];
   }
 
-  const intervalId = setInterval((prev: boolean) => setConfirmedAttr(!prev), 1000);
+  // const timeOutId = 
+  setTimeout((prev: boolean) => setConfirmedAttr(!prev), 1000);
 
   useEffect(() => {
     const attribute = selectRandomAttribute();
     setSelectedAttr(attribute);
     
-    return clearInterval(intervalId);
+    // return clearTimeOut(timeOutId);
   }, []);
 
   return (

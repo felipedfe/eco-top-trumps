@@ -27,9 +27,8 @@ export const Image = styled.img`
 interface ISelectableAttrProps {
   selected: boolean;
 }
-
 export const SelectableAttribute = styled.button<ISelectableAttrProps>`
-  background-color: ${(props) => props.selected ? "cyan" : "lightgray"}
+  background-color: ${(props) => props.selected ? "cyan" : "lightgray"};
 `
 
 export const AttributesSection = styled.section`
@@ -40,7 +39,6 @@ export const AttributesSection = styled.section`
 interface IAttProps {
   selectedAttr: boolean,
 }
-
 export const Attribute = styled.span<IAttProps>`
   background-color: #9fd7cc;
   padding: 5px;
