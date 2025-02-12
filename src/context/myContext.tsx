@@ -20,6 +20,8 @@ type ContextType = {
   setConfirmAttrBtnDisabled: React.Dispatch<React.SetStateAction<boolean>>;
   gameOver: boolean;
   setGameOver: React.Dispatch<React.SetStateAction<boolean>>;
+  gameStarted: boolean,
+  setGameStarted: React.Dispatch<React.SetStateAction<boolean>>;
 };
 
 // aqui o context pode iniciar sem um valor definido

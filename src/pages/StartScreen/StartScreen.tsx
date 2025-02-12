@@ -8,7 +8,7 @@ import Card from "../../components/Card/Card";
 
 function StartScreen() {
   const navigate = useNavigate();
-  const { setPlayerCards, setCpuCards } = useContext(myContext);
+  const { setPlayerCards, setCpuCards, setGameStarted } = useContext(myContext);
 
   // no clique do botão as cartas são embaralhadas e distribuidas
   const gameStart = () => {
@@ -17,6 +17,7 @@ function StartScreen() {
 
     setPlayerCards(playerHalf);
     setCpuCards(cpuHalf);
+    setGameStarted(true);
 
     navigate('/gameboard');
   };

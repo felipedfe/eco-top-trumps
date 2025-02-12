@@ -1,4 +1,5 @@
-import { useContext } from "react";
+import { useEffect, useContext } from "react";
+import { useNavigate } from "react-router-dom";
 import PlayerMove from "../../components/PlayerMove/PlayerMove";
 import CpuMove from "../../components/CpuMove/CpuMove";
 import GameOver from "../../components/GameOver/GameOver";
@@ -14,11 +15,19 @@ const GameSection = styled.section`
 `
 
 function GameBoard() {
-  const { playerCards, playersTurn, cpusTurn, gameOver, } = useContext(myContext);
+  const { playerCards, playersTurn, cpusTurn, gameOver, gameStarted } = useContext(myContext);
 
   console.log("players turn: ", playersTurn);
   console.log("cpus turn: ", cpusTurn);
   console.log(playerCards)
+
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    if (!gameStarted) {
+      navigate("/");
+    }
+  }, []);
 
   return (
     <Main>

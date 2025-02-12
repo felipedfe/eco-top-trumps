@@ -13,6 +13,7 @@ function GameProvider({ children }: { children: React.ReactNode }) {
   const [cpuCards, setCpuCards] = useState<ICard[]>([]);
   const [attrButtonDisabled, setAttrButtonDisabled] = useState(false);
   const [confirmAttrBtnDisabled, setConfirmAttrBtnDisabled] = useState(true);
+  const [gameStarted, setGameStarted] = useState(false);
   const [gameOver, setGameOver] = useState(false);
 
   // aqui as cartas são embaralhadas e distribuidas
@@ -42,7 +43,9 @@ function GameProvider({ children }: { children: React.ReactNode }) {
     confirmAttrBtnDisabled,
     setConfirmAttrBtnDisabled,
     gameOver,
-    setGameOver
+    setGameOver,
+    gameStarted,
+    setGameStarted,
   };
 
   return (
